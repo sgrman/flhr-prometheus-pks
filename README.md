@@ -51,7 +51,7 @@ kubectl create secret generic etcd-client \
 
 #### Without Persistent Storage
 
-**`override.yaml`**
+**`override-no-persist.yaml`**
 ```
 grafana:
   adminPassword: "VMware1!"
@@ -98,12 +98,12 @@ kubeEtcd:
 ```
 
 ```
-helm install -f override.yaml --name prom-operator stable/prometheus-operator
+helm install -f override-no-persist.yaml --name prom-operator stable/prometheus-operator
 ```
 
 #### With Persistent Storage
 
-**`override.yaml`**
+**`override-persist.yaml`**
 ```    
 grafana:
   adminPassword: "VMware1!"

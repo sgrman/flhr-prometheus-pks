@@ -1,0 +1,42 @@
+grafana:
+  adminPassword: "VMware1!"
+  ingress:
+    enabled: true
+    hosts:
+      - grafana.ing.flhrnet.local  ## Change to your ingress DNS for the cluster
+    path: "/*"
+prometheus:
+  ingress:
+    enabled: true
+    hosts: 
+      - prometheus.ing.flhrnet.local  ## Change to your ingress DNS for the cluster
+    paths:
+      - "/*"
+  prometheusSpec:
+    secrets:
+      - etcd-client
+alertmanager:
+  ingress:
+    enabled: true
+    hosts: 
+      - alertmanager.ing.flhrnet.local  ## Change to your ingress DNS for the cluster
+    paths:
+      - "/*"
+kubelet:
+  serviceMonitor:
+    https: true
+kubeControllerManager:
+  endpoints:
+    - 172.16.0.2     ## Change to the Master IP(s) recorded from "bosh vms"
+kubeScheduler:
+  endpoints:
+    - 172.16.0.2     ## Change to the Master IP(s) recorded from "bosh vms"
+kubeEtcd:
+  endpoints:
+    - 172.16.0.2     ## Change to the Master IP(s) recorded from "bosh vms"
+  serviceMonitor:
+    insecureSkipVerify: true
+    scheme: https
+    caFile: "/etc/prometheus/secrets/etcd-client/etcd-ca.crt"
+    certFile: "/etc/prometheus/secrets/etcd-client/etcdctl.crt"
+    keyFile: "/etc/prometheus/secrets/etcd-client/etcdctl.key"

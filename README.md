@@ -58,13 +58,13 @@ grafana:
   ingress:
     enabled: true
     hosts:
-      - grafana.ing.vballin.com  ## Change to your ingress DNS for the cluster
+      - grafana.ing.flhrnet.local  ## Change to your ingress DNS for the cluster
     path: "/*"
 prometheus:
   ingress:
     enabled: true
     hosts: 
-      - prometheus.ing.vballin.com  ## Change to your ingress DNS for the cluster
+      - prometheus.ing.flhrnet.local  ## Change to your ingress DNS for the cluster
     paths:
       - "/*"
   prometheusSpec:
@@ -74,7 +74,7 @@ alertmanager:
   ingress:
     enabled: true
     hosts: 
-      - alertmanager.ing.vballin.com  ## Change to your ingress DNS for the cluster
+      - alertmanager.ing.flhrnet.local  ## Change to your ingress DNS for the cluster
     paths:
       - "/*"
 kubelet:
@@ -82,13 +82,13 @@ kubelet:
     https: true
 kubeControllerManager:
   endpoints:
-    - 10.16.1.2     ## Change to the Master IP(s) recorded from "bosh vms"
+    - 172.16.0.2     ## Change to the Master IP(s) recorded from "bosh vms"
 kubeScheduler:
   endpoints:
-    - 10.16.1.2     ## Change to the Master IP(s) recorded from "bosh vms"
+    - 172.16.0.2     ## Change to the Master IP(s) recorded from "bosh vms"
 kubeEtcd:
   endpoints:
-    - 10.16.1.2     ## Change to the Master IP(s) recorded from "bosh vms"
+    - 172.16.0.2     ## Change to the Master IP(s) recorded from "bosh vms"
   serviceMonitor:
     insecureSkipVerify: true
     scheme: https
@@ -110,7 +110,7 @@ grafana:
   ingress:
     enabled: true
     hosts:
-      - grafana.ing.vballin.com  ## Change to your ingress DNS for the cluster
+      - grafana.ing.flhrnet.local  ## Change to your ingress DNS for the cluster
     path: "/*"
 ## Persistence
   persistence:
@@ -121,7 +121,7 @@ prometheus:
   ingress:
     enabled: true
     hosts: 
-      - prometheus.ing.vballin.com  ## Change to your ingress DNS for the cluster
+      - prometheus.ing.flhrnet.local  ## Change to your ingress DNS for the cluster
     paths:
       - "/*"
   prometheusSpec:
@@ -139,7 +139,7 @@ alertmanager:
   ingress:
     enabled: true
     hosts: 
-      - alertmanager.ing.vballin.com  ## Change to your ingress DNS for the cluster
+      - alertmanager.ing.flhrnet.local  ## Change to your ingress DNS for the cluster
     paths:
       - "/*"
 ## Persistence
@@ -156,13 +156,13 @@ kubelet:
     https: true
 kubeControllerManager:
   endpoints:
-    - 10.16.1.2     ## Change to the Master IP(s) recorded from "bosh vms"
+    - 172.16.0.2     ## Change to the Master IP(s) recorded from "bosh vms"
 kubeScheduler:
   endpoints:
-    - 10.16.1.2     ## Change to the Master IP(s) recorded from "bosh vms"
+    - 172.16.0.2     ## Change to the Master IP(s) recorded from "bosh vms"
 kubeEtcd:
   endpoints:
-    - 10.16.1.2     ## Change to the Master IP(s) recorded from "bosh vms"
+    - 172.16.0.2     ## Change to the Master IP(s) recorded from "bosh vms"
   serviceMonitor:
     insecureSkipVerify: true
     scheme: https
